@@ -1225,9 +1225,10 @@ footer {
     }
     
     /* Additional fixes for very small screens */
-/*     .container {
-        padding: 0 15px;
-    } */
+    .container {
+        max-width: 325px;
+/*         padding: 0 15px; */
+    }
     
     .hero {
         padding-top: 70px;
