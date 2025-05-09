@@ -1227,7 +1227,7 @@ footer {
     /* Additional fixes for very small screens */
     .container {
         max-width: 325px;
-/*         padding: 0 15px; */
+        padding: 0 4px;
     }
     
     .hero {
