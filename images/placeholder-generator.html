@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeholder Image Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .image-container {
+            margin-bottom: 30px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 100%;
+            height: 80px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Placeholder Images for Your Portfolio</h1>
+    <p>Below are data URL placeholder images you can use in your portfolio. Copy the data URL and use it directly in your img src attribute.</p>
+    
+    <div class="image-container">
+        <h2>Profile Image</h2>
+        <img id="profileImg" alt="Profile Image">
+        <p>Size: 300x300px</p>
+        <textarea id="profileUrl" readonly></textarea>
+    </div>
+    
+    <div class="image-container">
+        <h2>About Image</h2>
+        <img id="aboutImg" alt="About Image">
+        <p>Size: 400x300px</p>
+        <textarea id="aboutUrl" readonly></textarea>
+    </div>
+    
+    <div class="image-container">
+        <h2>Project 1</h2>
+        <img id="project1Img" alt="Project 1">
+        <p>Size: 600x400px</p>
+        <textarea id="project1Url" readonly></textarea>
+    </div>
+    
+    <div class="image-container">
+        <h2>Project 2</h2>
+        <img id="project2Img" alt="Project 2">
+        <p>Size: 600x400px</p>
+        <textarea id="project2Url" readonly></textarea>
+    </div>
+    
+    <div class="image-container">
+        <h2>Project 3</h2>
+        <img id="project3Img" alt="Project 3">
+        <p>Size: 600x400px</p>
+        <textarea id="project3Url" readonly></textarea>
+    </div>
+    
+    <div class="image-container">
+        <h2>Project 4</h2>
+        <img id="project4Img" alt="Project 4">
+        <p>Size: 600x400px</p>
+        <textarea id="project4Url" readonly></textarea>
+    </div>
+
+    <script>
+        // Function to generate placeholder image as data URL
+        function generatePlaceholder(width, height, text, bgColor, textColor) {
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            
+            // Background
+            ctx.fillStyle = bgColor;
+            ctx.fillRect(0, 0, width, height);
+            
+            // Text
+            ctx.fillStyle = textColor;
+            ctx.font = `${Math.floor(width/10)}px Arial`;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(text, width/2, height/2);
+            
+            // Add some design elements
+            ctx.strokeStyle = textColor;
+            ctx.lineWidth = 5;
+            ctx.globalAlpha = 0.3;
+            ctx.beginPath();
+            ctx.arc(width/2, height/2, Math.min(width, height)/3, 0, Math.PI*2);
+            ctx.stroke();
+            
+            return canvas.toDataURL();
+        }
+        
+        // Generate and display images
+        const profileDataUrl = generatePlaceholder(300, 300, 'Profile', '#4f46e5', '#ffffff');
+        document.getElementById('profileImg').src = profileDataUrl;
+        document.getElementById('profileUrl').value = profileDataUrl;
+        
+        const aboutDataUrl = generatePlaceholder(400, 300, 'About Me', '#818cf8', '#ffffff');
+        document.getElementById('aboutImg').src = aboutDataUrl;
+        document.getElementById('aboutUrl').value = aboutDataUrl;
+        
+        const project1DataUrl = generatePlaceholder(600, 400, 'Project 1', '#4f46e5', '#ffffff');
+        document.getElementById('project1Img').src = project1DataUrl;
+        document.getElementById('project1Url').value = project1DataUrl;
+        
+        const project2DataUrl = generatePlaceholder(600, 400, 'Project 2', '#818cf8', '#ffffff');
+        document.getElementById('project2Img').src = project2DataUrl;
+        document.getElementById('project2Url').value = project2DataUrl;
+        
+        const project3DataUrl = generatePlaceholder(600, 400, 'Project 3', '#4f46e5', '#ffffff');
+        document.getElementById('project3Img').src = project3DataUrl;
+        document.getElementById('project3Url').value = project3DataUrl;
+        
+        const project4DataUrl = generatePlaceholder(600, 400, 'Project 4', '#818cf8', '#ffffff');
+        document.getElementById('project4Img').src = project4DataUrl;
+        document.getElementById('project4Url').value = project4DataUrl;
+    </script>
+</body>
+</html> 

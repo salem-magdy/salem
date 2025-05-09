@@ -1,0 +1,334 @@
+/* Dashboard Styles */
+.dashboard-header {
+    background-color: var(--primary-color);
+    padding: 120px 0 60px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.dashboard-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(135deg, rgba(79, 70, 229, 0.8) 0%, rgba(129, 140, 248, 0.8) 100%);
+    z-index: -1;
+}
+
+.dashboard-header::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: var(--bg-color);
+    clip-path: ellipse(50% 50% at 50% 50%);
+    z-index: 0;
+}
+
+.dashboard-title h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.dashboard-title p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.dashboard-section {
+    padding: 60px 0;
+    position: relative;
+}
+
+/* Stats Cards */
+.dashboard-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 1;
+}
+
+.stat-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.stat-card:hover {
+    transform: translateY(-10px);
+}
+
+.stat-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--bg-alt-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-right: 20px;
+    transition: var(--transition);
+}
+
+.stat-card:hover .stat-icon {
+    background-color: var(--primary-color);
+    color: white;
+    transform: rotateY(360deg);
+}
+
+.stat-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: var(--text-color);
+}
+
+.stat-info p {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Charts */
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.chart-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: var(--transition);
+}
+
+.chart-card:hover {
+    transform: translateY(-5px);
+}
+
+.chart-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.chart-card.full-width {
+    grid-column: 1 / -1;
+}
+
+/* Growth Cards */
+.skill-growth {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.growth-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    transition: var(--transition);
+}
+
+.growth-card:hover {
+    transform: translateY(-5px);
+}
+
+.growth-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.growth-header h3 {
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.growth-percentage {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--success-color);
+}
+
+.growth-bar {
+    height: 10px;
+    background-color: var(--bg-alt-color);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.growth-progress {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    border-radius: 5px;
+    width: 0;
+    transition: width 1.5s ease-in-out;
+}
+
+.growth-timeline {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+/* Skills Network */
+.skills-network {
+    margin-top: 40px;
+}
+
+.network-container {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    height: 500px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skill-node {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.skill-node:hover {
+    transform: scale(1.1);
+    z-index: 10;
+}
+
+.skill-connection {
+    position: absolute;
+    height: 2px;
+    background-color: var(--border-color);
+    transform-origin: left center;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.skill-tooltip {
+    position: absolute;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 10px 15px;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    font-size: 0.9rem;
+    z-index: 100;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    max-width: 200px;
+}
+
+/* Counter Animation */
+.counter {
+    display: inline-block;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .dashboard-title h1 {
+        font-size: 2.5rem;
+    }
+    
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard-header {
+        padding: 100px 0 50px;
+    }
+    
+    .dashboard-title h1 {
+        font-size: 2rem;
+    }
+    
+    .stat-card {
+        padding: 20px;
+    }
+    
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+    
+    .stat-info p {
+        font-size: 1.5rem;
+    }
+    
+    .chart-wrapper {
+        height: 250px;
+    }
+    
+    .skill-growth {
+        grid-template-columns: 1fr;
+    }
+    
+    .network-container {
+        height: 400px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dashboard-title h1 {
+        font-size: 1.8rem;
+    }
+    
+    .dashboard-overview {
+        gap: 20px;
+    }
+    
+    .chart-card {
+        padding: 20px;
+    }
+    
+    .chart-wrapper {
+        height: 200px;
+    }
+    
+    .network-container {
+        height: 300px;
+        padding: 20px;
+    }
+} 
